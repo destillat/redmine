@@ -14,10 +14,10 @@ build: off
 
 test_script:
   - bundle install --without rmagick
-  - set SCMS=mercurial
+  - set SCMS=git
   - set RUN_ON_NOT_OFFICIAL=
-  - set RUBY_VER=1.9
-  - set BRANCH=trunk
+  - set RUBY_VER=2.5
+  - set BRANCH=master
   - bundle exec rake config/database.yml
   - bundle install
   - bundle exec rake ci:setup
@@ -26,7 +26,6 @@ test_script:
 environment:
   global:
     RAILS_ENV: test
-    DATABASE_ADAPTER: sqlite3
   matrix:
     - ruby_version: "193"
     - ruby_version: "200"
@@ -35,3 +34,7 @@ environment:
     - ruby_version: "21-x64"
     - ruby_version: "22"
     - ruby_version: "22-x64"
+    - ruby_version: "24"
+    - ruby_version: "24-x64"
+    - ruby_version: "25"
+    - ruby_version: "25-x64"
